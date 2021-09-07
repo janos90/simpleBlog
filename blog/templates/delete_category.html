@@ -1,0 +1,18 @@
+{% block title %}Delete {{ category.name }}{% endblock %}
+
+{% block content %}
+<h1>Delete Category</h1>
+    {% if user.is_authenticated %}
+
+<form method="post">
+    {% csrf_token %}
+    <strong>
+        Are you Sure you want to delete {{ category.name }}?
+    </strong>
+    <button>Delete Category</button>
+    <button>Cancel</button>
+</form>
+    {% else %}
+        <h2>You need to log in to view this page</h2>
+    {% endif %}
+{% endblock %}
